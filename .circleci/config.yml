@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: docker:18.05.0-ce
+    working_directory: /Base
     steps:
       # ... steps for building/testing app ...
 
