@@ -13,7 +13,7 @@ jobs:
       # build the application image
       - run: |
            pwd
-           docker build -t $DOCKER_USER/app:v1 Base/Dockerfile
+           docker build -t $DOCKER_USER/base:v1 Base
 
       # deploy the image
       - run: |
