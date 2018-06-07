@@ -16,7 +16,7 @@ jobs:
     working_directory: /root/project/docker-development-environment
     steps:
     - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-    - run: docker push $DOCKER_USER/development-tools-base:$CIRCLE_TAG
+    - run: docker push $DOCKER_USER/development-tools-base:$CIRCLE_STAGE$CIRCLE_BUILDNUM
 
 workflows:
   version: 2
