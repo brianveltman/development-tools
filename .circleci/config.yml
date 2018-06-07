@@ -5,12 +5,10 @@ jobs:
       - image: docker:18.05.0-ce
     working_directory: /root/project/docker-development-environment
     steps:
-      # ... steps for building/testing app ...
-
       - setup_remote_docker
       - checkout
       
-      # build the application image
+      # build the docker base image
       - run: |
            pwd
            docker build -t $DOCKER_USER/development-tools-base:v1 Base
