@@ -1,5 +1,7 @@
 jobs:
   build:
+    docker:
+      - image: debian:stretch
     steps:
       # ... steps for building/testing app ...
 
