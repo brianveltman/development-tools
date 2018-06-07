@@ -11,7 +11,9 @@ jobs:
       - checkout
       
       # build the application image
-      - run: docker build -t $DOCKER_USER/app:v1 .
+      - run: |
+           pwd
+           docker build -t $DOCKER_USER/app:v1 .
 
       # deploy the image
       - run: |
