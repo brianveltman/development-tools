@@ -18,4 +18,4 @@ jobs:
       # deploy the image
       - run: |
            docker login -u $DOCKER_USER -p $DOCKER_PASS
-           docker push $DOCKER_USER/app:v1
+           docker push $DOCKER_USER/base:v1
