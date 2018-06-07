@@ -1,28 +1,28 @@
 version: 2
-  jobs:
-    build:
-      filters:
-        branches:
-          ignore: /.*/
-        tags:
-          ignore: /^testing-.*/
-      docker:
-        - image: docker:18.05.0-ce
-      working_directory: /root/project/docker-development-environment
-      steps:
-        - setup_remote_docker
-        - checkout
-        - run: docker build -t $DOCKER_USER/development-tools-base:$CIRCLE_TAG Base
-    deploy:
-      requires:
-        - build
-      filters:
-        tags:
-          only: /^v.*/
-      docker:
-        - image: docker:18.05.0-ce
-      working_directory: /root/project/docker-development-environment
-      steps:
-      - run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASS
-        docker push $DOCKER_USER/development-tools-base:$CIRCLE_TAG
+jobs:
+  build:
+    filters:
+      branches:
+        ignore: /.*/
+      tags:
+        ignore: /^testing-.*/
+    docker:
+      - image: docker:18.05.0-ce
+    working_directory: /root/project/docker-development-environment
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run: docker build -t $DOCKER_USER/development-tools-base:$CIRCLE_TAG Base
+  deploy:
+    requires:
+      - build
+    filters:
+      tags:
+        only: /^v.*/
+    docker:
+      - image: docker:18.05.0-ce
+    working_directory: /root/project/docker-development-environment
+    steps:
+    - run: |
+      docker login -u $DOCKER_USER -p $DOCKER_PASS
+      docker push $DOCKER_USER/development-tools-base:$CIRCLE_TAG
