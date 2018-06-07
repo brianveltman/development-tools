@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: docker:18.05.0-ce
     steps:
       # ... steps for building/testing app ...
 
