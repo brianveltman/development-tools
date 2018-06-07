@@ -13,9 +13,9 @@ jobs:
       # build the application image
       - run: |
            pwd
-           docker build -t $DOCKER_USER/base:v1 Base
+           docker build -t $DOCKER_USER/development-tools-base:v1 Base
 
       # deploy the image
       - run: |
            docker login -u $DOCKER_USER -p $DOCKER_PASS
-           docker push $DOCKER_USER/base:v1
+           docker push $DOCKER_USER/development-tools-base:v1
