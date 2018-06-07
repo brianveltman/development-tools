@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: docker:18.05.0-ce
+    working_directory: /root/project/docker-development-environment
     steps:
       # ... steps for building/testing app ...
 
@@ -12,7 +13,7 @@ jobs:
       # build the application image
       - run: |
            pwd
-           docker build -t $DOCKER_USER/app:v1 .
+           docker build -t $DOCKER_USER/app:v1 Base/Dockerfile
 
       # deploy the image
       - run: |
