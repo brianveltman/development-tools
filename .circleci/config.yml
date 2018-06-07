@@ -8,7 +8,7 @@ jobs:
     steps:
       - setup_remote_docker
       - checkout
-      - run: docker build -t $DOCKER_USER/development-tools-base:$CIRCLE_BUILD_NUM Base
+      - run: docker build -t $DOCKER_USER/development-tools-base:v1.0.1 Base
 
   deploy:
     docker:
@@ -18,7 +18,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker push $DOCKER_USER/development-tools-base:$CIRCLE_BUILD_NUM
+      - run: docker push $DOCKER_USER/development-tools-base:v1.0.1
 
 workflows:
   version: 2
